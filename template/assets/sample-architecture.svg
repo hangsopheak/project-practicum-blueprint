@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="610" viewBox="0 0 1250 610" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>Sample architecture: clinic booking system</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <style>
+      .name { font-size: 16px; font-weight: 600; fill: #0f172a; text-anchor: middle; }
+      .note { font-size: 13px; fill: #475569; text-anchor: middle; }
+      .zone { font-size: 14px; font-weight: 600; fill: #475569; }
+      .who { font-size: 13px; fill: #334155; text-anchor: middle; }
+      .label { font-size: 12px; fill: #334155; text-anchor: middle; paint-order: stroke; stroke: #f8fafc; stroke-width: 5px; stroke-linejoin: round; }
+      .legend { font-size: 13px; fill: #475569; }
+      .wire { fill: none; stroke: #475569; stroke-width: 1.6; }
+      .app { fill: #e0f2fe; stroke: #0284c7; stroke-width: 1.5; }
+      .server { fill: #eef2ff; stroke: #4f46e5; stroke-width: 1.5; }
+      .data { fill: #fef3c7; stroke: #d97706; stroke-width: 1.5; }
+      .ext { fill: #f3f4f6; stroke: #6b7280; stroke-width: 1.5; stroke-dasharray: 6 4; }
+      .person { fill: none; stroke: #334155; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1250" height="610" fill="#ffffff"/>
+  <text x="30" y="40" font-size="22" font-weight="700" fill="#0f172a">Sample architecture: clinic booking system</text>
+
+  <!-- Zones -->
+  <rect x="140" y="60" width="800" height="480" rx="14" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text class="zone" x="160" y="86">Your system</text>
+  <rect x="960" y="60" width="270" height="480" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-dasharray="6 4"/>
+  <text class="zone" x="980" y="86">External services</text>
+
+  <!-- People -->
+  <circle class="person" cx="75" cy="146" r="10"/>
+  <path class="person" d="M57,178 A18,16 0 0 1 93,178"/>
+  <text class="who" x="75" y="198">Patient</text>
+  <circle class="person" cx="75" cy="286" r="10"/>
+  <path class="person" d="M57,318 A18,16 0 0 1 93,318"/>
+  <text class="who" x="75" y="338">Clinic staff</text>
+
+  <!-- Apps -->
+  <rect class="app" x="170" y="120" width="200" height="80" rx="10"/>
+  <text class="name" x="270" y="155">Patient app</text>
+  <text class="note" x="270" y="177">mobile · book and pay</text>
+  <rect class="app" x="170" y="260" width="200" height="80" rx="10"/>
+  <text class="name" x="270" y="295">Staff dashboard</text>
+  <text class="note" x="270" y="317">web · manage bookings</text>
+
+  <!-- Server code -->
+  <rect class="server" x="450" y="180" width="220" height="90" rx="10"/>
+  <text class="name" x="560" y="220">Backend API</text>
+  <text class="note" x="560" y="243">port 8000 · business rules</text>
+  <rect class="server" x="450" y="430" width="220" height="80" rx="10"/>
+  <text class="name" x="560" y="465">Reminder job</text>
+  <text class="note" x="560" y="487">runs every hour</text>
+
+  <!-- Data -->
+  <rect class="data" x="745" y="90" width="170" height="70" rx="10"/>
+  <text class="name" x="830" y="120">File storage</text>
+  <text class="note" x="830" y="141">lab report PDFs</text>
+  <path class="data" d="M745,300 V400 A85,14 0 0 0 915,400 V300"/>
+  <ellipse class="data" cx="830" cy="300" rx="85" ry="14"/>
+  <text class="name" x="830" y="352">Database</text>
+  <text class="note" x="830" y="374">bookings, payments</text>
+
+  <!-- External services -->
+  <rect class="ext" x="990" y="185" width="210" height="80" rx="10"/>
+  <text class="name" x="1095" y="220">Payment gateway</text>
+  <text class="note" x="1095" y="242">card payments</text>
+  <rect class="ext" x="990" y="430" width="210" height="80" rx="10"/>
+  <text class="name" x="1095" y="465">SMS gateway</text>
+  <text class="note" x="1095" y="487">text messages</text>
+
+  <!-- Arrows (from the part that starts the call) -->
+  <path class="wire" d="M100,160 H168" marker-end="url(#arrow)"/>
+  <path class="wire" d="M100,300 H168" marker-end="url(#arrow)"/>
+  <path class="wire" d="M370,160 L448,204" marker-end="url(#arrow)"/>
+  <path class="wire" d="M370,300 L448,246" marker-end="url(#arrow)"/>
+  <path class="wire" d="M640,180 V125 H743" marker-end="url(#arrow)"/>
+  <path class="wire" d="M640,270 V330 H743" marker-end="url(#arrow)"/>
+  <path class="wire" d="M640,430 V375 H743" marker-end="url(#arrow)"/>
+  <path class="wire" d="M670,225 H988" marker-end="url(#arrow)"/>
+  <path class="wire" d="M670,470 H988" marker-end="url(#arrow)"/>
+
+  <!-- Arrow labels -->
+  <text class="label" x="410" y="233">HTTPS JSON</text>
+  <text class="label" x="692" y="118">files</text>
+  <text class="label" x="692" y="323">SQL</text>
+  <text class="label" x="692" y="368">SQL</text>
+  <text class="label" x="830" y="218">charge card</text>
+  <text class="label" x="830" y="463">send reminder</text>
+
+  <!-- Legend -->
+  <rect class="app" x="30" y="566" width="18" height="14" rx="3"/>
+  <text class="legend" x="56" y="578">App</text>
+  <rect class="server" x="110" y="566" width="18" height="14" rx="3"/>
+  <text class="legend" x="136" y="578">Server code</text>
+  <rect class="data" x="245" y="566" width="18" height="14" rx="3"/>
+  <text class="legend" x="271" y="578">Data</text>
+  <rect class="ext" x="325" y="566" width="18" height="14" rx="3"/>
+  <text class="legend" x="351" y="578">External service</text>
+  <path class="wire" d="M500,573 H538" marker-end="url(#arrow)"/>
+  <text class="legend" x="550" y="578">Arrows point from the part that starts the call</text>
+</svg>

@@ -1,0 +1,209 @@
+# =============================================================================
+# Capstone repository .gitignore
+# Covers every stack students may choose. Do not delete sections you don't use —
+# they cost nothing and protect you if you switch tools later.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Environment & secrets — NEVER commit real credentials
+# -----------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.test
+# ...but DO commit the templates
+!.env.example
+!**/.env.example
+
+*.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.keystore
+!debug.keystore
+*.mobileprovision
+google-services.json
+GoogleService-Info.plist
+service-account*.json
+credentials*.json
+secrets/
+
+# -----------------------------------------------------------------------------
+# Node.js / TypeScript (Express, NestJS, React, Vue, Next.js, Vite)
+# -----------------------------------------------------------------------------
+node_modules/
+dist/
+out/
+.npm/
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.turbo/
+.vite/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+
+# -----------------------------------------------------------------------------
+# Python (FastAPI, Django, Flask)
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+htmlcov/
+.coverage
+.coverage.*
+celerybeat-schedule
+db.sqlite3
+db.sqlite3-journal
+instance/
+
+# -----------------------------------------------------------------------------
+# PHP (Laravel) & Java/Kotlin (Spring Boot)
+# -----------------------------------------------------------------------------
+vendor/
+storage/*.key
+bootstrap/cache/*.php
+.phpunit.result.cache
+target/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+*.class
+hs_err_pid*
+
+# -----------------------------------------------------------------------------
+# Flutter / Dart
+# -----------------------------------------------------------------------------
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/ephemeral/
+**/ios/.symlinks/
+**/linux/flutter/ephemeral/
+**/macos/Flutter/ephemeral/
+**/windows/flutter/ephemeral/
+*.g.dart.tmp
+
+# -----------------------------------------------------------------------------
+# React Native / Expo
+# -----------------------------------------------------------------------------
+.expo/
+.expo-shared/
+expo-env.d.ts
+web-build/
+*.orig.*
+.metro-health-check*
+
+# -----------------------------------------------------------------------------
+# Native mobile SDKs (iOS / Android)
+# -----------------------------------------------------------------------------
+Pods/
+**/ios/Pods/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+local.properties
+.externalNativeBuild/
+.cxx/
+captures/
+*.apk
+*.aab
+*.ap_
+
+# -----------------------------------------------------------------------------
+# Test, coverage & runtime output
+# -----------------------------------------------------------------------------
+coverage/
+.nyc_output/
+logs/
+*.log
+tmp/
+temp/
+uploads/
+# Generated API test run reports (save the ones you need as evidence in context/assets/evidence/)
+api-specs/results*.json
+api-specs/results*.html
+
+# -----------------------------------------------------------------------------
+# Design tools — binary sources & temporary caches
+# The Figma file itself lives in Figma (link it in Phase 4).
+# Exported PNGs in context/assets/figma/ ARE committed on purpose.
+# -----------------------------------------------------------------------------
+*.fig
+*.sketch
+*.xd
+.figma/
+figma-cache/
+.figma-export-cache/
+*.psd
+*.ai
+
+# -----------------------------------------------------------------------------
+# Databases & large local dumps (keep the defense fallback dump outside git,
+# or commit a small, password-free seed dump deliberately with `git add -f`)
+# -----------------------------------------------------------------------------
+*.sqlite
+*.sqlite3
+*.dump
+*.bak
+pgdata/
+mysql-data/
+mongo-data/
+
+# -----------------------------------------------------------------------------
+# IDEs & editors
+# -----------------------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.iml
+*.swp
+*.swo
+*~
+.fleet/
+.history/
+
+# -----------------------------------------------------------------------------
+# OS artifacts
+# -----------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
