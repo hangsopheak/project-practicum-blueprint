@@ -6,7 +6,7 @@ How to use this repository for your individual Bachelor capstone. Read it once a
 
 1. **Fork** this repository on GitHub. Don't just download or clone it. Your fork is your monorepo: it holds your planning documents and all of your code.
 2. Clone your fork, then fill in the top of the root `README.md` (project title, your name, your advisor).
-3. Write your stack into `AGENTS.md` once you have chosen it in Phase 1.2, and add the run commands once you have code.
+3. Write your stack into `AGENTS.md` once you have chosen it in Phase 3.1, and add the run commands once you have code.
 
 ## 2. Who Owns What
 
@@ -28,14 +28,14 @@ When your advisor updates the templates, click **Sync fork** on your fork's GitH
 | # | Phase                         | Weeks* | Done when                                              |
 +===+===============================+========+========================================================+
 | 1 | Domain & Problem Teardown     | 1-2    | Problem, persona, domain terms and competitor gap      |
-|   |                               |        | documented; stack chosen.                              |
+|   |                               |        | documented.                                            |
 +---+-------------------------------+--------+--------------------------------------------------------+
 | 2 | Scope, Logic & MoSCoW         | 3      | Every feature has an ID and one priority; Must-Haves   |
 |   |                               |        | fit the time available; 5-8 user journeys written.     |
 +---+-------------------------------+--------+--------------------------------------------------------+
-| 3 | Architecture, ERD & API Plan  | 4-5    | Component map, ERD and API contracts done; a test      |
-|   |                               |        | request saved for every endpoint (failing is OK); no   |
-|   |                               |        | feature code yet.                                      |
+| 3 | Architecture, ERD & API Plan  | 4-5    | Stack chosen; component map, ERD and API contracts     |
+|   |                               |        | done; a test request saved for every endpoint (failing |
+|   |                               |        | is OK); no feature code yet.                           |
 +---+-------------------------------+--------+--------------------------------------------------------+
 | 4 | UI/UX & Figma Design          | 6-7    | Figma file with design system, screens and a clickable |
 |   |                               |        | prototype; 6-10 screens exported to the context/       |
@@ -95,7 +95,7 @@ Your advisor follows your progress by reading your fork, not by reviewing pull r
 | P-01 | Persona | Phase 1.1 |
 | F-01 | Feature | Phase 2.1 |
 | UJ-01 | User journey | Phase 2.2 |
-| EP-01 | API endpoint | Phase 3.3 |
+| EP-01 | API endpoint | Phase 3.4 |
 | SCR-01 | Screen | Phase 4.1 |
 | SD-1 | Backend sub-deliverable | Phase 5.1 |
 | TC-FN-01, TC-NB-01, TC-SEC-01, TC-DEV-01 | Test cases (functional, negative/boundary, security, device) | Phase 7.1 |
@@ -103,7 +103,7 @@ Your advisor follows your progress by reading your fork, not by reviewing pull r
 
 ## 6. Project Conventions
 
-The technology is your choice; justify it in Phase 1.2. Every project follows these conventions:
+The technology is your choice; justify it in Phase 3.1. Every project follows these conventions:
 
 - The API runs on port 8000 locally, and every route starts with `/api/v1`.
 - `GET /api/v1/health` returns `200` with `{"status":"ok","timestamp":"<ISO-8601>"}`.
@@ -118,7 +118,7 @@ The technology is your choice; justify it in Phase 1.2. Every project follows th
 - A Figma account (the Education plan is free).
 - An API testing tool of your choice.
 - Docker (recommended, for running your database).
-- The runtimes and SDKs for the stack you choose in Phase 1.2.
+- The runtimes and SDKs for the stack you choose in Phase 3.1.
 
 ## 8. Defense Preparation Timeline
 

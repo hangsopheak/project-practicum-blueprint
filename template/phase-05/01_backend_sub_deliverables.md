@@ -18,7 +18,7 @@ Finish them in order. Commit at the end of each one, and reference the SD in the
 
 | SD | Scope | Done when | Endpoints | Target date | Status | Evidence (commit) |
 |---|---|---|---|---|---|---|
-| SD-1 | Database setup & migrations | All Phase 3.2 tables are created by migrations, and test seed data loads | none | [STUDENT INPUT] | Not started | |
+| SD-1 | Database setup & migrations | All Phase 3.3 tables are created by migrations, and test seed data loads | none | [STUDENT INPUT] | Not started | |
 | SD-2 | Authentication & authorization | Register, login, token issuing, and middleware that protects routes and checks roles | [STUDENT INPUT: EP-xx] | [STUDENT INPUT] | Not started | |
 | SD-3 | Core CRUD entities | Create/read/update/delete for the primary resources, with validation | [STUDENT INPUT: EP-xx] | [STUDENT INPUT] | Not started | |
 | SD-4 | Complex business logic & transactions | Calculations, multi-table writes in one transaction, status rules | [STUDENT INPUT: EP-xx] | [STUDENT INPUT] | Not started | |

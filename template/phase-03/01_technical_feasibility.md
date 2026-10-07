@@ -1,6 +1,6 @@
-# Phase 1.2 — Technical Feasibility
+# Phase 3.1 — Tech Stack & Feasibility
 
-**Objective:** Choose a tech stack you can actually deliver alone, list every external dependency, and plan for what could go wrong.
+**Objective:** Choose a tech stack that fits your Must-Have features and that you can deliver alone, list the external services those features need, and plan for what could go wrong.
 
 **Status:** In Progress / Submitted · **Last updated:** [STUDENT INPUT: YYYY-MM-DD]
 
@@ -13,7 +13,7 @@
 
 ## 1. Tech Stack Selection & Justification
 
-Guiding questions: What have you already used? Is the documentation good? Can you finish it alone in the time you have?
+Guiding questions: What do your Must-Have features need (mobile or web, scheduled jobs, real-time updates)? What have you already used? Is the documentation good? Can you finish it alone in the time you have?
 
 | Layer | Your choice (with version) | Alternative considered | Why this choice |
 |---|---|---|---|
@@ -26,11 +26,11 @@ Guiding questions: What have you already used? Is the documentation good? Can yo
 
 ## 2. Third-Party Service Dependencies
 
-Only list services you will really use (e.g. cloud storage, maps, SMS, payment gateway, push notifications). API keys go in a git-ignored `.env` file, never in Git.
+Only list services your features really need (e.g. cloud storage, maps, SMS, payment gateway, push notifications). API keys go in a git-ignored `.env` file, never in Git.
 
 | Service | Purpose | Provider | Free-tier limit | Fallback if it fails |
 |---|---|---|---|---|
-| [STUDENT INPUT] | [STUDENT INPUT] | [STUDENT INPUT] | [STUDENT INPUT] | [STUDENT INPUT] |
+| [STUDENT INPUT] | [STUDENT INPUT: what it does, for which F-xx] | [STUDENT INPUT] | [STUDENT INPUT] | [STUDENT INPUT] |
 | | | | | |
 
 ## 3. Top Risks

@@ -1,4 +1,4 @@
-# Phase 3.2 — Database ERD
+# Phase 3.3 — Database ERD
 
 **Objective:** Design the data model your features need: every table, column, constraint and relationship, decided before any migration is written.
 

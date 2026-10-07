@@ -1,4 +1,4 @@
-# Phase 3.1 — System Architecture Map
+# Phase 3.2 — System Architecture Map
 
 **Objective:** Show the parts of your system, what each one is responsible for, and how data moves between them. No application code yet; this is the plan.
 
@@ -6,7 +6,7 @@
 
 ## Done When
 
-- [ ] The diagram shows every part you will build or run, plus every external service from Phase 1.2
+- [ ] The diagram shows every part you will build or run, plus every external service from Phase 3.1
 - [ ] The diagram displays on GitHub
 - [ ] Every box in the diagram has a row in the component table
 - [ ] One Must-Have flow is traced from start to finish, including what happens when a step fails

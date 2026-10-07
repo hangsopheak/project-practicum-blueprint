@@ -1,4 +1,4 @@
-# Phase 3.3 — API Contracts & Test Collection
+# Phase 3.4 — API Contracts & Test Collection
 
 **Objective:** Specify every endpoint before you implement it, and write a test request for each one in your API testing tool. The tests fail now and turn green during Phase 5.
 
@@ -55,7 +55,7 @@ Success response, [STUDENT INPUT: 200 or 201]:
 
 ## 4. Test Collection
 
-Use the API testing tool you chose in Phase 1.2 (e.g. Bruno, Postman or Insomnia) and keep the collection in `api-specs/`, committed to Git. For tools that store collections in the cloud (e.g. Postman), export the collection as JSON into `api-specs/` after every change.
+Use the API testing tool you chose in Phase 3.1 (e.g. Bruno, Postman or Insomnia) and keep the collection in `api-specs/`, committed to Git. For tools that store collections in the cloud (e.g. Postman), export the collection as JSON into `api-specs/` after every change.
 
 Rules:
 

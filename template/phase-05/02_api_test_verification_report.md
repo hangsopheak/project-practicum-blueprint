@@ -8,7 +8,7 @@
 
 ## Done When
 
-- [ ] Every Phase 3.3 endpoint appears in the matrix
+- [ ] Every Phase 3.4 endpoint appears in the matrix
 - [ ] Every Must-Have endpoint shows PASS and has at least one passing error-case test
 - [ ] The test run report is saved and linked
 - [ ] The test collection in `api-specs/` is committed and up to date

@@ -5,9 +5,9 @@ This is a solo Bachelor capstone monorepo. The student's planning documents in `
 ## Context, in reading order
 
 1. `README.md`: project summary and current progress
-2. `context/phase-01/`: the problem, users, domain terms and chosen tech stack
+2. `context/phase-01/`: the problem, users and domain terms
 3. `context/phase-02/`: scope (MoSCoW matrix) and user journeys
-4. `context/phase-03/`: architecture, database design and API contracts
+4. `context/phase-03/`: tech stack, architecture, database design and API contracts
 5. `context/phase-04/`: screens and design tokens
 6. `context/phase-05/` to `context/phase-08/`: implementation, testing and thesis records, once they exist
 
