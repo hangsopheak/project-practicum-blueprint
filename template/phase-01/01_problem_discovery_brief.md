@@ -15,15 +15,11 @@
 
 ## 1. Problem Statement
 
-Guiding questions: Who has this problem? When and how often does it happen? What does it cost them (time, money, stress)? How do you know?
+Guiding questions: Who has this problem? When and how often does it happen? What does it cost them (time, money, stress)?
 
 **Context**
 
 > [STUDENT INPUT: 3–5 sentences describing the situation in which the problem happens.]
-
-**How you know**
-
-> [STUDENT INPUT: what you have seen or experienced that shows the problem is real, e.g. your own experience, friends' complaints, online reviews or posts]
 
 **Pain points**
 

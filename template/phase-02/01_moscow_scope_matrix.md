@@ -22,28 +22,18 @@
 
 ## 2. MoSCoW Matrix
 
-IDs never change. If a feature changes priority, change the Priority column and note it in Section 4.
+IDs never change. If a feature changes priority, change the Priority column and note it in Section 3.
 
-| ID | Feature | Priority | Pain point | Effort (days) | Why this priority |
-|---|---|---|---|---|---|
-| F-01 | [STUDENT INPUT] | [STUDENT INPUT: Must / Should / Could / Won't] | [STUDENT INPUT: PP-xx] | [STUDENT INPUT: days to build it end to end: API, screens and tests] | [STUDENT INPUT] |
-| F-02 | | | | | |
-| F-03 | | | | | |
-| F-04 | | | | | |
-| F-05 | | | | | |
-| F-06 | | | | | |
+| ID | Feature | Priority | Pain point | Why this priority |
+|---|---|---|---|---|
+| F-01 | [STUDENT INPUT] | [STUDENT INPUT: Must / Should / Could / Won't] | [STUDENT INPUT: PP-xx] | [STUDENT INPUT] |
+| F-02 | | | | |
+| F-03 | | | | |
+| F-04 | | | | |
+| F-05 | | | | |
+| F-06 | | | | |
 
-## 3. Effort Check
-
-| Item | Value |
-|---|---|
-| Days you can spend building in Phases 5 and 6 (count only days you will really work on the capstone) | [STUDENT INPUT] |
-| Total Must-Have effort (days) | [STUDENT INPUT] |
-| Must-Have share (must be 60% or less) | [STUDENT INPUT: %] |
-
-> [STUDENT INPUT: If the share is above 60%, explain which features you moved down and why.]
-
-## 4. Scope Changes
+## 3. Scope Changes
 
 After this phase, scope is frozen so you can focus on building. Changes are still possible: agree each one with your advisor and note it here.
 
