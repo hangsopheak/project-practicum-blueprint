@@ -10,7 +10,6 @@
 - [ ] The diagram displays on GitHub
 - [ ] Every box in the diagram has a row in the component table
 - [ ] One Must-Have flow is traced from start to finish, including what happens when a step fails
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. High-Level Component Map
 

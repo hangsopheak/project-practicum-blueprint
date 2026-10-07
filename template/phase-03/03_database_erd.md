@@ -8,9 +8,8 @@
 
 - [ ] The ERD covers every Must-Have feature and journey, and renders on GitHub
 - [ ] Every table has a primary key and created/updated timestamps
-- [ ] Every foreign key appears in the relationship table, with an on-delete rule
+- [ ] Every foreign key has an on-delete rule in the data dictionary
 - [ ] No money columns use a floating-point type
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Conventions
 
@@ -51,13 +50,6 @@ Copy this table once for each table in your ERD.
 | Column | Data type | Constraints | Nullable | Description |
 |---|---|---|---|---|
 | id | [STUDENT INPUT: e.g. uuid] | PRIMARY KEY | No | Unique identifier |
-| [STUDENT INPUT] | [STUDENT INPUT] | [STUDENT INPUT: e.g. UNIQUE, CHECK > 0, FK → table.id] | [STUDENT INPUT] | [STUDENT INPUT] |
+| [STUDENT INPUT] | [STUDENT INPUT] | [STUDENT INPUT: e.g. UNIQUE, CHECK > 0, FK → table.id ON DELETE CASCADE] | [STUDENT INPUT] | [STUDENT INPUT] |
 | created_at | timestamp | DEFAULT now | No | When the row was created |
 | updated_at | timestamp | DEFAULT now | No | When the row was last changed |
-
-## 4. Relationships & Foreign Keys
-
-| Parent | Child | Cardinality | Foreign key | On delete | Business rule |
-|---|---|---|---|---|---|
-| [STUDENT INPUT] | [STUDENT INPUT] | [STUDENT INPUT: 1-to-many] | [STUDENT INPUT] | [STUDENT INPUT: CASCADE / RESTRICT / SET NULL] | [STUDENT INPUT] |
-| | | | | | |

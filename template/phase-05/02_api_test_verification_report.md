@@ -12,7 +12,6 @@
 - [ ] Every Must-Have endpoint shows PASS and has at least one passing error-case test
 - [ ] The test run report is saved and linked
 - [ ] The test collection in `api-specs/` is committed and up to date
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Test Run
 

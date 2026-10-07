@@ -10,7 +10,6 @@
 - [ ] No Critical bug is open
 - [ ] Every fixed bug has a root cause, a fix commit and a re-test
 - [ ] Every unfixed bug is listed under Known Issues
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Severity Levels
 

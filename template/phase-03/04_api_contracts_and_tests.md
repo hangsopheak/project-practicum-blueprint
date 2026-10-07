@@ -9,7 +9,6 @@
 - [ ] Every endpoint has an ID (EP-01, EP-02, …) and a contract card (Section 3)
 - [ ] Every Must-Have journey step is covered by an endpoint
 - [ ] The test collection in `api-specs/` has one request per endpoint, named with its EP-ID
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Conventions (all projects)
 

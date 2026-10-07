@@ -19,7 +19,6 @@ Set both links to "Anyone with the link can view" and test them in a private bro
 - [ ] Every screen has an ID (SCR-01, SCR-02, …) and a Figma frame with the same name
 - [ ] Every journey step from Phase 2.2 has a screen
 - [ ] 6–10 key screens are exported as PNG into `context/assets/figma/` and display in this file on GitHub
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Your Figma File
 

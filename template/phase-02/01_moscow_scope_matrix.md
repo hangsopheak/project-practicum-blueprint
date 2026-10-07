@@ -8,7 +8,6 @@
 
 - [ ] Every feature has a stable ID (F-01, F-02, …), exactly one priority and a pain point
 - [ ] At least 3 Won't-Have items are listed
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Priority Rules
 

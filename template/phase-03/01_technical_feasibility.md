@@ -9,7 +9,6 @@
 - [ ] Every stack layer has a choice, a version and a reason
 - [ ] Every external service has a fallback
 - [ ] Your stack is written in `AGENTS.md`
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Tech Stack Selection & Justification
 

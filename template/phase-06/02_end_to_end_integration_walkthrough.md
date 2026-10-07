@@ -10,7 +10,6 @@
 - [ ] Each screen only uses endpoints that passed in Phase 5.2
 - [ ] The alpha demo script runs from start to finish against the running backend
 - [ ] The demo recording link opens in a private browser window
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Integration Checklist
 

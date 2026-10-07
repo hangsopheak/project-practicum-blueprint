@@ -10,7 +10,6 @@
 - [ ] The state management choice has a reason
 - [ ] The token is kept in secure storage
 - [ ] All six service layer responsibilities are done and located in code
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Client Folder Architecture
 

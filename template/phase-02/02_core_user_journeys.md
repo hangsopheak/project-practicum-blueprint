@@ -10,7 +10,6 @@
 - [ ] Each journey has a happy path and at least one failure or edge-case path
 - [ ] Every Must-Have feature appears in the coverage table
 - [ ] Personas and terms match Phase 1
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Writing Rules
 

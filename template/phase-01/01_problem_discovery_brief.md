@@ -10,7 +10,6 @@
 - [ ] The persona refers to specific pain points
 - [ ] At least 3 existing solutions are compared, each linked to a pain point
 - [ ] Your unique angle fits in one sentence
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Problem Statement
 

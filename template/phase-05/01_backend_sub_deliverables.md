@@ -10,7 +10,6 @@
 - [ ] Every Must-Have endpoint passes in your API test collection (shown in Phase 5.2)
 - [ ] The runbook rebuilds the database from scratch (reset, migrate, seed) on a fresh clone
 - [ ] No real secrets are committed; `backend/.env.example` lists every variable
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## 1. Sub-Deliverables
 

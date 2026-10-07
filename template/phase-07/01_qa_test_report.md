@@ -11,7 +11,6 @@
 - [ ] At least 3 device or screen configurations are tested
 - [ ] Every FAIL links to a bug ID in Phase 7.2
 - [ ] The metrics add up
-- [ ] No fill-in markers left (the placeholder check prints nothing)
 
 ## Test Environment
 
