@@ -37,6 +37,6 @@ Only list services your features really need (e.g. cloud storage, maps, SMS, pay
 
 | Risk | What you'll do about it |
 |---|---|
-| [STUDENT INPUT: e.g. I have never used this framework] | [STUDENT INPUT: e.g. follow its official tutorial in week 2] |
+| [STUDENT INPUT: e.g. I have never used this framework] | [STUDENT INPUT: e.g. follow its official tutorial before Phase 5] |
 | | |
 | | |

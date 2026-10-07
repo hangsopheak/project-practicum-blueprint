@@ -7,7 +7,6 @@
 ## Done When
 
 - [ ] Every feature has a stable ID (F-01, F-02, …), exactly one priority and a pain point
-- [ ] Must-Haves use no more than 60% of the days you can spend building in Phases 5 and 6
 - [ ] At least 3 Won't-Have items are listed
 - [ ] No fill-in markers left (the placeholder check prints nothing)
 

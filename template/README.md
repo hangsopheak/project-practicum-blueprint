@@ -30,8 +30,8 @@ When your advisor updates the templates, click **Sync fork** on your fork's GitH
 | 1 | Domain & Problem Teardown     | 1-2    | Problem, persona, domain terms and competitor gap      |
 |   |                               |        | documented.                                            |
 +---+-------------------------------+--------+--------------------------------------------------------+
-| 2 | Scope, Logic & MoSCoW         | 3      | Every feature has an ID and one priority; Must-Haves   |
-|   |                               |        | fit the time available; 5-8 user journeys written.     |
+| 2 | Scope, Logic & MoSCoW         | 3      | Every feature has an ID and one priority; 5-8 user     |
+|   |                               |        | journeys written.                                      |
 +---+-------------------------------+--------+--------------------------------------------------------+
 | 3 | Architecture, ERD & API Plan  | 4-5    | Stack chosen; component map, ERD and API contracts     |
 |   |                               |        | done; a test request saved for every endpoint (failing |
@@ -125,7 +125,7 @@ The technology is your choice; justify it in Phase 3.1. Every project follows th
 | When (D = defense day) | Milestone |
 |---|---|
 | D − 4 weeks | Feature freeze: only Must-Have gaps and bug fixes from now on |
-| D − 3 weeks | QA done: test report and defect log complete, no open Critical bugs |
+| D − 2 weeks | QA done: test report and defect log complete, no open Critical bugs |
 | D − 2 weeks | Code freeze: final version on `main`, full thesis draft ready |
 | D − 10 days | First timed rehearsal; backup demo video recorded |
 | D − 1 week | Second rehearsal; slides and thesis revised |

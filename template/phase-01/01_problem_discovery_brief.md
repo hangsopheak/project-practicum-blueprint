@@ -1,12 +1,11 @@
 # Phase 1.1 — Problem Discovery Brief
 
-**Objective:** Show that a real problem exists, who suffers from it, and why existing solutions are not good enough. Every later decision traces back to this document.
+**Objective:** Describe the problem, who suffers from it, and why existing solutions are not good enough. Every later decision traces back to this document.
 
 **Status:** In Progress / Submitted · **Last updated:** [STUDENT INPUT: YYYY-MM-DD]
 
 ## Done When
 
-- [ ] The problem comes from something you have seen or experienced, not a guess
 - [ ] Every pain point has an ID (PP-01, PP-02, …) that Phase 2 can reference
 - [ ] The persona refers to specific pain points
 - [ ] At least 3 existing solutions are compared, each linked to a pain point

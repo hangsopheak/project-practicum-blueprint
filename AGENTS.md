@@ -14,7 +14,7 @@ This is a solo Bachelor capstone monorepo. The student's planning documents in `
 ## Rules
 
 - Never edit anything in `template/`. It belongs to the advisor.
-- Only build features listed as Must-Have or Should-Have in the MoSCoW matrix. Anything else needs a scope change entry first.
+- Only build features listed in the MoSCoW matrix, following its priority rules. Won't-Haves and unlisted features need a scope change entry first.
 - Implement endpoints exactly as the API contracts specify. If a contract must change, update the contract document first.
 - An endpoint must pass in the API test collection (`api-specs/`) before any screen uses it.
 - Use the domain terms from Phase 1.1 for names in code, the database and the UI.
