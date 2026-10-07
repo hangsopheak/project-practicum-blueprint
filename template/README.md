@@ -23,38 +23,16 @@ When your advisor updates the templates, click **Sync fork** on your fork's GitH
 
 ## 3. The 8-Phase Roadmap
 
-```text
-+---+-------------------------------+--------+--------------------------------------------------------+
-| # | Phase                         | Weeks* | Done when                                              |
-+===+===============================+========+========================================================+
-| 1 | Domain & Problem Teardown     | 1-2    | Problem, persona, domain terms and competitor gap      |
-|   |                               |        | documented.                                            |
-+---+-------------------------------+--------+--------------------------------------------------------+
-| 2 | Scope, Logic & MoSCoW         | 3      | Every feature has an ID and one priority; 5-8 user     |
-|   |                               |        | journeys written.                                      |
-+---+-------------------------------+--------+--------------------------------------------------------+
-| 3 | Architecture, ERD & API Plan  | 4-5    | Stack chosen; component map, ERD and API contracts     |
-|   |                               |        | done; a test request saved for every endpoint (failing |
-|   |                               |        | is OK); no feature code yet.                           |
-+---+-------------------------------+--------+--------------------------------------------------------+
-| 4 | UI/UX & Figma Design          | 6-7    | Figma file with design system, screens and a clickable |
-|   |                               |        | prototype; 6-10 screens exported to the context/       |
-|   |                               |        | folder.                                                |
-+---+-------------------------------+--------+--------------------------------------------------------+
-| 5 | Backend Core & API            | 8-10   | SD-1 to SD-4 done; database rebuilds from scratch;     |
-|   |                               |        | every Must-Have endpoint passes its API tests with     |
-|   |                               |        | real data.                                             |
-+---+-------------------------------+--------+--------------------------------------------------------+
-| 6 | Frontend Client & Integration | 11-13  | Every screen connected to live endpoints; loading,     |
-|   |                               |        | empty and error states handled; alpha demo recorded.   |
-+---+-------------------------------+--------+--------------------------------------------------------+
-| 7 | QA, Bug Fixes & Test Report   | 14     | Functional, negative, security and device tests run;   |
-|   |                               |        | metrics reported; no open Critical bugs.               |
-+---+-------------------------------+--------+--------------------------------------------------------+
-| 8 | Code Freeze, Report & Defense | 15-16  | Code frozen; runs from a fresh clone; thesis and       |
-|   |                               |        | defense prepared with your institution's templates.    |
-+---+-------------------------------+--------+--------------------------------------------------------+
-```
+| # | Phase | Weeks* | Done when |
+|---|---|---|---|
+| 1 | Domain & Problem Teardown | 1-2 | Problem, persona, domain terms and competitor gap documented. |
+| 2 | Scope, Logic & MoSCoW | 3 | Every feature has an ID and one priority; 5-8 user journeys written. |
+| 3 | Architecture, ERD & API Plan | 4-5 | Stack chosen; component map, ERD and API contracts done; a test request saved for every endpoint (failing is OK); no feature code yet. |
+| 4 | UI/UX & Figma Design | 6-7 | Figma file with design system, screens and a clickable prototype; 6-10 screens exported to the context/ folder. |
+| 5 | Backend Core & API | 8-10 | SD-1 to SD-4 done; database rebuilds from scratch; every Must-Have endpoint passes its API tests with real data. |
+| 6 | Frontend Client & Integration | 11-13 | Every screen connected to live endpoints; loading, empty and error states handled; alpha demo recorded. |
+| 7 | QA, Bug Fixes & Test Report | 14 | Functional, negative, security and device tests run; metrics reported; no open Critical bugs. |
+| 8 | Code Freeze, Report & Defense | 15-16 | Code frozen; runs from a fresh clone; thesis and defense prepared with your institution's templates. |
 
 (*) Suggested weeks for a 16-week semester, with the defense right after week 16; they match the Defense Preparation Timeline in Section 8. If your defense is earlier, plan backwards from Section 8 and your institution's calendar.
 
