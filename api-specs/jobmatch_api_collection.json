@@ -1,0 +1,254 @@
+{
+  "info": {
+    "name": "JobMatch API Collection",
+    "description": "API Test Collection covering all EP-01 to EP-13 endpoints for Phase 3",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "EP-01 Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "health"]
+        }
+      }
+    },
+    {
+      "name": "EP-02 Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"dara@example.com\",\n  \"password\": \"Password123!\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/auth/register",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "auth", "register"]
+        }
+      }
+    },
+    {
+      "name": "EP-03 Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"dara@example.com\",\n  \"password\": \"Password123!\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/auth/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "auth", "login"]
+        }
+      }
+    },
+    {
+      "name": "EP-04 Get User Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "profile"]
+        }
+      }
+    },
+    {
+      "name": "EP-05 Update User Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"full_name\": \"Dara Sok\",\n  \"education\": \"Bachelor of Computer Science\",\n  \"experience_level\": \"entry\",\n  \"preferred_role\": \"Mobile Developer\",\n  \"preferred_location\": \"Phnom Penh\",\n  \"expected_salary\": 800.00,\n  \"skill_ids\": [1, 2, 3]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/profile",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "profile"]
+        }
+      }
+    },
+    {
+      "name": "EP-06 Get Skills Master List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/skills",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "skills"]
+        }
+      }
+    },
+    {
+      "name": "EP-07 Search Job Listings",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/jobs?q=Flutter&location=Phnom+Penh&page=1&limit=20",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "jobs"],
+          "query": [
+            {"key": "q", "value": "Flutter"},
+            {"key": "location", "value": "Phnom Penh"},
+            {"key": "page", "value": "1"},
+            {"key": "limit", "value": "20"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "EP-08 Get Job Detail",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/jobs/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "jobs", "1"]
+        }
+      }
+    },
+    {
+      "name": "EP-09 Get AI Recommendations",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/recommendations",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "recommendations"]
+        }
+      }
+    },
+    {
+      "name": "EP-10 Get Saved Jobs",
+      "request": {
+        "method": "GET",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/saved-jobs",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "saved-jobs"]
+        }
+      }
+    },
+    {
+      "name": "EP-11 Bookmark Job",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/saved-jobs/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "saved-jobs", "1"]
+        }
+      }
+    },
+    {
+      "name": "EP-12 Remove Bookmark",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"}
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/saved-jobs/1",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "saved-jobs", "1"]
+        }
+      }
+    },
+    {
+      "name": "EP-13 Admin Trigger Scrape",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Authorization", "value": "Bearer {{token}}"},
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"source\": \"all\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/admin/scrape",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "admin", "scrape"]
+        }
+      }
+    },
+    {
+      "name": "EP-14 Send Email OTP",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"dara@example.com\",\n  \"purpose\": \"login_or_verify\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/auth/otp/send",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "auth", "otp", "send"]
+        }
+      }
+    },
+    {
+      "name": "EP-15 Verify Email OTP",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key": "Content-Type", "value": "application/json"}
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"dara@example.com\",\n  \"code\": \"123456\",\n  \"purpose\": \"login_or_verify\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/auth/otp/verify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "auth", "otp", "verify"]
+        }
+      }
+    }
+  ]
+}
+

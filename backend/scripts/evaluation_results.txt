@@ -1,0 +1,93 @@
+JOBMATCH CAMBODIA: EVALUATION OF THE REAL ENGINE
+30 jobs (15 English, 15 Khmer/bilingual) x 5 profiles; model: paraphrase-multilingual-MiniLM-L12-v2
+
+================================================================
+ALL 30 JOBS
+================================================================
+System                         P@5     R@5  profiles
+----------------------------------------------------------------
+Skills only (1.0/0.0)         0.72    0.72         5
+Semantic only (0.0/1.0)       0.72    0.72         5
+Hybrid 0.5/0.5                0.76    0.75         5
+JobMatch 0.7/0.3              0.76    0.75         5
+Hybrid 0.9/0.1                0.76    0.75         5
+----------------------------------------------------------------
+Best by P@5 then R@5: Hybrid 0.5/0.5, JobMatch 0.7/0.3, Hybrid 0.9/0.1
+-> JobMatch 0.7/0.3 ties for best; the set cannot separate them.
+
+================================================================
+KHMER / BILINGUAL SUBSET ONLY (15 jobs)
+================================================================
+System                         P@5     R@5  profiles
+----------------------------------------------------------------
+Skills only (1.0/0.0)         0.36    0.87         5
+Semantic only (0.0/1.0)       0.32    0.77         5
+Hybrid 0.5/0.5                0.36    0.87         5
+JobMatch 0.7/0.3              0.36    0.87         5
+Hybrid 0.9/0.1                0.36    0.87         5
+----------------------------------------------------------------
+Best by P@5 then R@5: Skills only (1.0/0.0), Hybrid 0.5/0.5, JobMatch 0.7/0.3, Hybrid 0.9/0.1
+-> JobMatch 0.7/0.3 ties for best; the set cannot separate them.
+
+================================================================
+WEIGHT SENSITIVITY (in-sample, NOT a tuning result)
+================================================================
+w_skill/w_sem        P@5     R@5
+0.0/1.0             0.72    0.72
+0.1/0.9             0.72    0.72
+0.2/0.8             0.76    0.75
+0.3/0.7             0.76    0.75
+0.4/0.6             0.76    0.75
+0.5/0.5             0.76    0.75
+0.6/0.4             0.76    0.75
+0.7/0.3             0.76    0.75
+0.8/0.2             0.76    0.75
+0.9/0.1             0.76    0.75
+1.0/0.0             0.72    0.72
+
+================================================================
+TOP-5 PER PROFILE, JobMatch 0.7/0.3 (✓ relevant, ✗ not relevant)
+================================================================
+
+Profile 1: Junior Flutter Developer
+  ✓ 121 Junior Flutter Intern (ហាត់ការ)            cov=1.00 sem=0.81
+  ✓ 101 Junior Flutter Developer                   cov=1.00 sem=0.81
+  ✓ 116 ត្រូវការជ្រើសរើស Mobile App Dev (Flutter)  cov=1.00 sem=0.80
+  ✓ 108 Flutter Developer Internship               cov=1.00 sem=0.75
+  ✓ 102 Mobile App Engineer                        cov=0.33 sem=0.68
+
+Profile 2: Backend Python Developer
+  ✓ 117 Python Backend Developer (បន្ទាន់)         cov=1.00 sem=0.84
+  ✓ 103 Backend Python Engineer                    cov=1.00 sem=0.82
+  ✗ 123 Junior Python / AI Intern                  cov=0.50 sem=0.75
+  ✗ 106 Machine Learning Engineer                  cov=0.50 sem=0.67
+  ✓ 111 Junior Python Developer                    cov=0.33 sem=0.82
+
+Profile 3: Data Analyst / ML Intern
+  ✓ 123 Junior Python / AI Intern                  cov=1.00 sem=0.75
+  ✓ 119 Data Analyst (ផ្នែកទិន្នន័យ)               cov=0.67 sem=0.77
+  ✓ 111 Junior Python Developer                    cov=0.67 sem=0.70
+  ✓ 105 Junior Data Analyst                        cov=0.50 sem=0.71
+  ✓ 106 Machine Learning Engineer                  cov=0.50 sem=0.71
+
+Profile 4: Fresh IT Graduate (No Skills Tagged)
+  ✓ 123 Junior Python / AI Intern                  cov=0.00 sem=0.77
+  ✓ 108 Flutter Developer Internship               cov=0.00 sem=0.77
+  ✗ 117 Python Backend Developer (បន្ទាន់)         cov=0.00 sem=0.73
+  ✗ 116 ត្រូវការជ្រើសរើស Mobile App Dev (Flutter)  cov=0.00 sem=0.73
+  ✗ 129 General Admin Clerk                        cov=0.00 sem=0.72
+
+Profile 5: Administrative / Finance Assistant
+  ✓ 122 Admin & Finance Assistant (ផ្នែករដ្ឋបាល)   cov=1.00 sem=0.77
+  ✓ 113 HR & Admin Assistant                       cov=0.67 sem=0.70
+  ✓ 129 General Admin Clerk                        cov=0.67 sem=0.68
+  ✓ 112 Accounting & Finance Officer               cov=0.67 sem=0.68
+  ✗ 119 Data Analyst (ផ្នែកទិន្នន័យ)               cov=0.33 sem=0.65
+
+================================================================
+LATENCY (30 jobs, this machine)
+================================================================
+Cold (encode all job texts once):    580.5 ms  (19.4 ms/job)
+Warm, ranking only (candidate pre-encoded):     0.59 ms
+Warm, end-to-end (includes candidate encoding):    19.75 ms
+Note: excludes database queries. Time the real endpoint separately.

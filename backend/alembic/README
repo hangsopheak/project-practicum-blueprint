@@ -1,0 +1,30 @@
+# Database Migrations (Alembic)
+
+This directory manages version-controlled database schema migrations for PostgreSQL.
+
+## Structure
+- `env.py`: Connects SQLAlchemy declarative models (`backend/app/models/models.py`) to the target PostgreSQL database via `settings.DATABASE_URL`.
+- `script.py.mako`: Template used by Alembic when generating new migration scripts.
+- `versions/`: Contains all versioned migration files in chronological revision order.
+
+## Commands
+
+```bash
+# Apply all pending migrations to latest head
+alembic upgrade head
+
+# Inspect current applied revision
+alembic current
+
+# Show migration history
+alembic history --verbose
+
+# Create a new migration after updating SQLAlchemy models
+alembic revision --autogenerate -m "describe schema change"
+
+# Rollback one migration step
+alembic downgrade -1
+```
+
+## Applied Revisions
+- `cc7e0eccd8d8`: Add `duplicate_of` (indexed self-referencing FK), `UNIQUE(source, source_post_id)`, contact channels (`apply_email`, `apply_phone`, `apply_telegram`), `last_seen_at`, and dedicated `telegram_jobs` / `web_jobs` storage tables for cross-source deduplication and anti-phishing protection.

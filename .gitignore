@@ -8,14 +8,15 @@
 # Environment & secrets — NEVER commit real credentials
 # -----------------------------------------------------------------------------
 .env
-.env.local
-.env.*.local
-.env.development
-.env.production
-.env.test
-# ...but DO commit the templates
+.env.*
+**/.env
+**/.env.*
+*.env
+*.env.*
+# Allow templates to be committed
 !.env.example
 !**/.env.example
+
 
 *.pem
 *.key
@@ -30,6 +31,9 @@ GoogleService-Info.plist
 service-account*.json
 credentials*.json
 secrets/
+
+# Local scratch & draft notes
+context/ADVISOR_NOTES.md
 
 # -----------------------------------------------------------------------------
 # Node.js / TypeScript (Express, NestJS, React, Vue, Next.js, Vite)
@@ -62,8 +66,11 @@ pnpm-debug.log*
 __pycache__/
 *.py[cod]
 *$py.class
+.venv
 .venv/
+venv
 venv/
+env
 env/
 *.egg-info/
 .eggs/
@@ -179,6 +186,8 @@ figma-cache/
 *.sqlite3
 *.dump
 *.bak
+*.sql
+*.sql.gz
 pgdata/
 mysql-data/
 mongo-data/

@@ -23,4 +23,40 @@ This is a solo Bachelor capstone monorepo. The student's planning documents in `
 
 ## Stack and commands
 
-[STUDENT INPUT: your language, framework, database and client framework, plus the commands to install, run, test and seed the project.]
+**Stack**
+
+| Layer | Technology |
+|---|---|
+| Mobile client | Flutter (Dart) |
+| Backend API | Python — FastAPI, runs on port 8000 |
+| Database | PostgreSQL |
+| AI / Matching | Python (scikit-learn or OpenAI API — decided in Phase 3) |
+| Data extraction | Python (requests + BeautifulSoup / official job-board APIs) |
+
+**Commands (filled in from Phase 5 onward)**
+
+```bash
+# Install backend dependencies
+cd backend && pip install -r requirements.txt
+
+# Copy environment file
+cp .env.example .env   # then fill in real values
+
+# Start the database (Docker)
+docker compose up -d db
+
+# Run migrations
+alembic upgrade head
+
+# Seed sample data
+python seed.py
+
+# Start the API (port 8000)
+uvicorn main:app --reload --port 8000
+
+# Run API tests
+# (tool TBD in Phase 3 — Bruno / Postman / pytest)
+
+# Start the Flutter mobile app
+cd mobile && flutter run
+```

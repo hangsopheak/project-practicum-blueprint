@@ -1,0 +1,7 @@
+================================================================
+JOBMATCH CAMBODIA: ENDPOINT BENCHMARK (GET /api/v1/recommendations)
+================================================================
+Cold HTTP Request (all 18 active jobs, empty RAM cache): 11371.58 ms
+Warm HTTP Request (mean over 20 calls): 39.99 ms (min: 36.00 ms, max: 48.08 ms)
+Includes: PostgreSQL queries (eager-loaded), candidate text encoding, cached job lookups, and JSON serialization.
+================================================================

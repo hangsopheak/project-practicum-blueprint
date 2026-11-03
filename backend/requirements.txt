@@ -1,0 +1,20 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.28.0
+sqlalchemy>=2.0.0
+alembic>=1.13.0
+psycopg2-binary>=2.9.9
+pydantic>=2.6.0
+email-validator>=2.0.0
+pydantic-settings>=2.2.0
+passlib[bcrypt]>=1.7.4
+python-jose[cryptography]>=3.3.0
+scikit-learn>=1.4.0
+numpy>=1.26.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+httpx>=0.27.0
+pytest>=8.0.0
+# Semantic embedding model — paraphrase-multilingual-MiniLM-L12-v2
+# supports both English and Khmer (Unicode-based tokenization)
+sentence-transformers>=3.0.0
+rapidfuzz>=3.0.0

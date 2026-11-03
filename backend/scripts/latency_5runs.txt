@@ -1,0 +1,60 @@
+================================================================
+JOBMATCH RECOMMENDATION ENGINE: 5-RUN LATENCY BENCHMARK
+================================================================
+Environment: macOS (Apple Silicon CPU), 30 representative postings,
+multilingual MiniLM-L12-v2 (118M parameters).
+Excludes database queries and network transport.
+
+RUN BREAKDOWN:
+----------------------------------------------------------------
+Run 1:
+  Cold encoding (30 jobs):                 906.2 ms (30.2 ms/job)
+  Warm ranking only (pre-encoded):           1.02 ms
+  Warm end-to-end (with cand. encoding):    29.01 ms
+  Derived candidate encoding (e2e - rank):  27.99 ms
+
+Run 2:
+  Cold encoding (30 jobs):                 504.3 ms (16.8 ms/job)
+  Warm ranking only (pre-encoded):           0.49 ms
+  Warm end-to-end (with cand. encoding):    17.66 ms
+  Derived candidate encoding (e2e - rank):  17.17 ms
+
+Run 3:
+  Cold encoding (30 jobs):                 525.5 ms (17.5 ms/job)
+  Warm ranking only (pre-encoded):           0.49 ms
+  Warm end-to-end (with cand. encoding):    18.24 ms
+  Derived candidate encoding (e2e - rank):  17.75 ms
+
+Run 4:
+  Cold encoding (30 jobs):                 518.7 ms (17.3 ms/job)
+  Warm ranking only (pre-encoded):           0.49 ms
+  Warm end-to-end (with cand. encoding):    17.92 ms
+  Derived candidate encoding (e2e - rank):  17.43 ms
+
+Run 5:
+  Cold encoding (30 jobs):                 532.1 ms (17.7 ms/job)
+  Warm ranking only (pre-encoded):           0.51 ms
+  Warm end-to-end (with cand. encoding):    18.45 ms
+  Derived candidate encoding (e2e - rank):  17.94 ms
+
+----------------------------------------------------------------
+SUMMARY METRICS (5 RUNS):
+----------------------------------------------------------------
+Cold encoding (30 jobs):
+  Median: 525.5 ms
+  Min:    504.3 ms
+  Max:    906.2 ms
+
+Warm ranking only (candidate pre-encoded):
+  Median: 0.49 ms
+  Min:    0.49 ms
+  Max:    1.02 ms
+
+Warm end-to-end (includes candidate encoding):
+  Median: 18.24 ms
+  Min:    17.66 ms
+  Max:    29.01 ms
+
+Candidate text encoding duration:
+  Derived (end-to-end minus ranking-only): ~17.75 ms median (~18 ms)
+================================================================
