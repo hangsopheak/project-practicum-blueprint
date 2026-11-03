@@ -26,10 +26,37 @@ erDiagram
     users ||--|| profiles : has
     users ||--o{ saved_jobs : bookmarks
     profiles ||--o{ profile_skills : possesses
+    skill_categories ||--o{ skills : groups
     skills ||--o{ profile_skills : referenced_in
     skills ||--o{ job_skills : required_in
+    sources ||--o{ job_listings : provides
     job_listings ||--o{ job_skills : requires
     job_listings ||--o{ saved_jobs : saved_by
+
+    skill_categories {
+        int id PK
+        string name UK
+        string code UK
+        string icon
+        string description
+        int display_order
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    sources {
+        int id PK
+        string name UK
+        string code UK
+        string platform_type
+        text url
+        text logo_url
+        boolean is_active
+        int scrape_interval_minutes
+        timestamp last_scraped_at
+        timestamp created_at
+        timestamp updated_at
+    }
 
     users {
         int id PK
@@ -55,6 +82,7 @@ erDiagram
 
     skills {
         int id PK
+        int category_id FK
         string name UK
         string category
         timestamp created_at
@@ -71,6 +99,7 @@ erDiagram
 
     job_listings {
         int id PK
+        int source_id FK
         string title
         string raw_title
         string company
@@ -92,6 +121,11 @@ erDiagram
         string company_url
         string application_url
         string work_arrangement
+        string job_category
+        string job_subcategory
+        string job_level
+        float classification_confidence
+        string classification_source
         date posted_at
         date deadline
         timestamp scraped_at
@@ -171,14 +205,47 @@ Stores personal and professional information for candidate matching. Connected 1
 
 ---
 
+### Table: `skill_categories`
+Master taxonomy table grouping technical and professional competencies into structured domain clusters (3NF Database Normalization).
+
+**Purpose & Function:**
+1. **Mobile UI Categorization (SCR-07 Profile Skill Chips):** Prevents showing candidates a flat, unorganized list of 50+ skills. In Flutter, skills are rendered grouped under visual category headers/chips (e.g. Mobile, Backend, Database).
+2. **Standardized Domain Taxonomy:** Normalizes skill domain classifications across mobile client and matching engine.
+3. **Domain Coverage Scoring:** Allows calculating candidate readiness by technical domain.
+
+| Column | Data type | Constraints | Nullable | Description |
+|---|---|---|---|---|
+| id | integer | PRIMARY KEY, SERIAL | No | Unique category identifier |
+| name | varchar(100) | UNIQUE, INDEX | No | Human-readable category title ('Mobile', 'Backend', 'Database') |
+| code | varchar(50) | UNIQUE, INDEX | No | Slug identifier ('mobile', 'backend', 'database') |
+| icon | varchar(50) | | Yes | Material/Cupertino icon identifier for Flutter UI rendering |
+| description | text | | Yes | Scope of competencies and tools included in this domain |
+| display_order | integer | DEFAULT 0 | No | Visual display order on mobile profile chip selection screen |
+| created_at | timestamp | DEFAULT now() | No | Creation timestamp |
+| updated_at | timestamp | DEFAULT now() | No | Last update timestamp |
+
+#### Predefined Skill Categories Breakdown:
+| Category Name | Code | Icon | Description | Example Skills Included |
+|---|---|---|---|---|
+| **Mobile Development** | `mobile` | `phone_android` | Native and cross-platform smartphone application engineering | Flutter, Dart, React Native, Swift, Kotlin, Android, iOS |
+| **Backend Development** | `backend` | `dns` | Server-side architectures, API design, business logic, microservices | Python, FastAPI, Java, Node.js, REST API, Laravel, Go |
+| **Frontend Development** | `frontend` | `web` | Client-side web application user interfaces and responsive web tech | JavaScript, TypeScript, React, Vue.js, HTML/CSS, Tailwind |
+| **Database & Storage** | `database` | `storage` | Relational, document, and in-memory data persistence systems | PostgreSQL, MySQL, MongoDB, Redis, SQLite |
+| **DevOps & Cloud** | `devops` | `cloud` | Infrastructure, containerization, version control, CI/CD pipelines | Git, Docker, Kubernetes, AWS, Linux, CI/CD |
+| **UI/UX & Design** | `design` | `palette` | User interface design, wireframing, prototyping, user experience | UI/UX, Figma, Adobe XD, Wireframing |
+| **Data & AI** | `data` | `insights` | Data extraction, machine learning, data processing, statistics | Data Scraping, BeautifulSoup, Pandas, Scikit-learn, SQL |
+
+---
+
 ### Table: `skills`
 Master catalog of standardized technical and soft skill tokens.
 
 | Column | Data type | Constraints | Nullable | Description |
 |---|---|---|---|---|
 | id | integer | PRIMARY KEY, SERIAL | No | Unique skill identifier |
-| name | varchar(50) | UNIQUE | No | Normalized skill tag (e.g. Flutter, Dart, Firebase, Git) |
-| category | varchar(50) | | No | Category (e.g. Mobile, Backend, Database, Marketing) |
+| category_id | integer | FK → skill_categories.id ON DELETE SET NULL, INDEX | Yes | Foreign key reference to master category entity |
+| name | varchar(50) | UNIQUE, INDEX | No | Normalized skill tag (e.g. Flutter, Dart, Firebase, Git) |
+| category | varchar(50) | | No | Denormalized category string label for backward compatibility |
 | created_at | timestamp | DEFAULT now() | No | When the skill was added |
 | updated_at | timestamp | DEFAULT now() | No | When the skill was last updated |
 
@@ -197,12 +264,32 @@ Junction table linking candidate profiles with their selected skills.
 
 ---
 
+### Table: `sources`
+Master registry of recruitment sources and job aggregation channels (Web portals & Telegram channels).
+
+| Column | Data type | Constraints | Nullable | Description |
+|---|---|---|---|---|
+| id | integer | PRIMARY KEY, SERIAL | No | Unique source identifier |
+| name | varchar(100) | UNIQUE, INDEX | No | Human-readable platform name (e.g., 'Internships Cambodia', 'BongThom') |
+| code | varchar(50) | UNIQUE, INDEX | No | Machine-readable identifier/slug (e.g., 'internships_cambodia', 'bongthom') |
+| platform_type | varchar(50) | | No | Type of platform ('telegram', 'web_portal', 'api') |
+| url | text | | No | Official channel link or website root URL |
+| logo_url | text | | Yes | CDN/static URL for platform branding badge |
+| is_active | boolean | DEFAULT true | No | Whether scheduled scraper should pull from this source |
+| scrape_interval_minutes | integer | DEFAULT 60 | No | Frequency of scheduled scraping runs |
+| last_scraped_at | timestamptz | | Yes | Timestamp of most recent scraping pass |
+| created_at | timestamp | DEFAULT now() | No | Creation timestamp |
+| updated_at | timestamp | DEFAULT now() | No | Last update timestamp |
+
+---
+
 ### Table: `job_listings`
 Stores clean, normalized job vacancies aggregated from external sources.
 
 | Column | Data type | Constraints | Nullable | Description |
 |---|---|---|---|---|
 | id | integer | PRIMARY KEY, SERIAL | No | Unique job listing identifier |
+| source_id | integer | FK → sources.id ON DELETE SET NULL, INDEX | Yes | Foreign key reference to master recruitment source |
 | title | varchar(200) | | No | Normalized job title |
 | raw_title | varchar(255) | | Yes | Original uncleaned title string as published on source |
 | company | varchar(150) | | No | Verified hiring organization name |
@@ -224,6 +311,11 @@ Stores clean, normalized job vacancies aggregated from external sources.
 | company_url | text | | Yes | Official hiring company website URL |
 | application_url | text | | Yes | Direct application URL (Google Form, external portal) |
 | work_arrangement | varchar(50) | | Yes | Work environment ('on-site', 'hybrid', 'remote') |
+| job_category | varchar(100) | DEFAULT 'Unknown', INDEX | No | Primary domain/industry classification |
+| job_subcategory | varchar(100) | DEFAULT 'Unknown' | No | Detailed technical or functional subcategory |
+| job_level | varchar(50) | DEFAULT 'Unknown', INDEX | No | Standardized seniority classification |
+| classification_confidence | float | | Yes | Confidence score from classifier (0.0 to 1.0) |
+| classification_source | varchar(20) | DEFAULT 'rule' | No | Origin of classification ('jev' or 'rule') |
 | posted_at | date | | Yes | Original publication date on source platform |
 | deadline | date | | Yes | Application deadline |
 | scraped_at | timestamptz | | Yes | Timestamp when listing was scraped or updated |

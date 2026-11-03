@@ -13,6 +13,7 @@ def format_job_item(job: JobListing) -> JobItemResponse:
     skill_names = [js.skill.name for js in job.skills if js.skill]
     return JobItemResponse(
         id=job.id,
+        source_id=job.source_id,
         title=job.title,
         company=job.company,
         location=job.location,
@@ -22,6 +23,16 @@ def format_job_item(job: JobListing) -> JobItemResponse:
         salary_max=float(job.salary_max) if job.salary_max is not None else None,
         salary_currency=job.salary_currency,
         is_negotiable=job.is_negotiable,
+        work_arrangement=job.work_arrangement,
+        job_category=job.job_category,
+        job_subcategory=job.job_subcategory,
+        job_level=job.job_level,
+        classification_confidence=job.classification_confidence,
+        classification_source=job.classification_source,
+        company_logo_url=job.company_logo_url,
+        company_url=job.company_url,
+        application_url=job.application_url,
+        status=job.status,
         source=job.source,
         source_url=job.source_url,
         posted_at=str(job.posted_at) if job.posted_at else None,
@@ -32,8 +43,10 @@ def format_job_item(job: JobListing) -> JobItemResponse:
 @router.get("", response_model=JobListResponse)
 def list_jobs(
     search: Optional[str] = Query(None, description="Search keyword in title, company, or description"),
-    source: Optional[str] = Query(None, description="Filter by source: JobNet, BongThom, Khmer24, Telegram"),
+    source: Optional[str] = Query(None, description="Filter by source name/portal"),
+    source_id: Optional[int] = Query(None, description="Filter by master source ID"),
     experience_level: Optional[str] = Query(None, description="Filter: entry, junior, mid, senior"),
+    job_category: Optional[str] = Query(None, description="Filter by job category (e.g. Information Technology)"),
     location: Optional[str] = Query(None, description="Filter by location (e.g. Phnom Penh)"),
     min_salary: Optional[float] = Query(None, description="Minimum expected salary"),
     since: Optional[str] = Query(None, description="Filter jobs created/seen since timestamp (ISO 8601 or YYYY-MM-DD)"),
@@ -55,6 +68,9 @@ def list_jobs(
         except Exception:
             pass
 
+    if source_id is not None:
+        query = query.filter(JobListing.source_id == source_id)
+
     if source:
         query = query.filter(JobListing.source.ilike(f"%{source.strip()}%"))
 
@@ -71,6 +87,9 @@ def list_jobs(
 
     if experience_level:
         query = query.filter(JobListing.experience_level == experience_level.strip().lower())
+
+    if job_category:
+        query = query.filter(JobListing.job_category.ilike(f"%{job_category.strip()}%"))
 
     if location:
         query = query.filter(JobListing.location.ilike(f"%{location.strip()}%"))

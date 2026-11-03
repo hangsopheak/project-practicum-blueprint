@@ -105,10 +105,34 @@ class SkillResponse(BaseModel):
 
 
 # ---------------------------------------------------------
+# Source Schemas (Master Recruitment Sources)
+# ---------------------------------------------------------
+class SourceResponse(BaseModel):
+    id: int
+    name: str
+    code: str
+    platform_type: str
+    url: str
+    logo_url: Optional[str] = None
+    is_active: bool
+    scrape_interval_minutes: int
+    last_scraped_at: Optional[datetime] = None
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
+
+    model_config = ConfigDict(from_attributes=True)
+
+class SourceListResponse(BaseModel):
+    total: int
+    sources: List[SourceResponse]
+
+
+# ---------------------------------------------------------
 # Job Listing Schemas (EP-07, EP-08)
 # ---------------------------------------------------------
 class JobItemResponse(BaseModel):
     id: int
+    source_id: Optional[int] = None
     title: str
     company: str
     location: str
@@ -121,6 +145,11 @@ class JobItemResponse(BaseModel):
     is_negotiable: bool = False
     # --- New fields (teacher recommendation) ---
     work_arrangement: Optional[str] = None    # on-site | hybrid | remote
+    job_category: Optional[str] = "Unknown"
+    job_subcategory: Optional[str] = "Unknown"
+    job_level: Optional[str] = "Unknown"
+    classification_confidence: Optional[float] = None
+    classification_source: Optional[str] = "rule"
     status: str = "active"                    # active | expired | closed
     application_url: Optional[str] = None     # direct apply link
     company_url: Optional[str] = None         # company website

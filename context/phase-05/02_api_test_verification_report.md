@@ -18,9 +18,9 @@
 | Item | Value |
 |---|---|
 | API testing tool | Pytest (HTTPX / TestClient) + Postman/Bruno Collection |
-| How you ran the whole collection | `PYTHONPATH=. tests/venv/bin/pytest tests/ -v` (58 tests) |
-| Test suite result | 58 passed, 0 failed, 1 warning (OpenSSL warning on macOS) |
-| Date | 2026-10-24 |
+| How you ran the whole collection | `PYTHONPATH=. tests/venv/bin/pytest tests/ -v` (70 tests) |
+| Test suite result | 70 passed, 0 failed, 1 warning (OpenSSL warning on macOS) |
+| Date | 2026-11-02 |
 | Test collection file | `api-specs/jobmatch_api_collection.json` |
 
 ## 2. API Verification Matrix
@@ -42,6 +42,8 @@
 | EP-13 | POST | `/api/v1/admin/scrape` | Must | PASS | EP-13 Admin Trigger Scrape | `{"status":"completed","new_jobs_added":15}` |
 | EP-14 | POST | `/api/v1/auth/otp/send` | Must | PASS | EP-14 Send Email OTP | `{"message":"OTP sent","dev_code":"..."}` |
 | EP-15 | POST | `/api/v1/auth/otp/verify` | Must | PASS | EP-15 Verify Email OTP | `{"message":"OTP verified","access_token":"..."}` |
+| EP-16 | GET | `/api/v1/sources` | Must | PASS | EP-16 List Sources | `[{"id":1,"name":"Internships Cambodia"}]` |
+| EP-17 | GET | `/api/v1/sources/{id}` | Must | PASS | EP-17 Get Source Detail | `{"id":1,"name":"Internships Cambodia"}` |
 
 ## 3. Negative Cases
 
@@ -58,6 +60,7 @@
 | EP-13 | Unauthenticated request to admin scrape | 401 | PASS | Returns `UNAUTHORIZED` |
 | EP-14 | Send OTP with invalid email format | 422 | PASS | Rejected by Pydantic EmailStr validation |
 | EP-15 | Verify OTP with incorrect code | 400 | PASS | Returns `BAD_REQUEST: Invalid verification code` |
+| EP-17 | Retrieve non-existent source ID | 404 | PASS | Returns `NOT_FOUND` |
 | EP-15 | Verify OTP reusing an already-used code | 400 | PASS | Returns `BAD_REQUEST: No active OTP request` |
 | DEDUP | Phishing fake post with same title but fake contacts | N/A | PASS | Verified in `test_dedup.py`: Contacts in real job are NEVER overwritten |
 | DEDUP | Scrape duplicate post from same source/post_id twice | N/A | PASS | Verified in `test_dedup.py`: Row is updated idempotently with unique constraint |

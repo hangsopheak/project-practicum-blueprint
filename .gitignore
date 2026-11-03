@@ -32,6 +32,9 @@ service-account*.json
 credentials*.json
 secrets/
 
+# Local scratch & draft notes
+context/ADVISOR_NOTES.md
+
 # -----------------------------------------------------------------------------
 # Node.js / TypeScript (Express, NestJS, React, Vue, Next.js, Vite)
 # -----------------------------------------------------------------------------

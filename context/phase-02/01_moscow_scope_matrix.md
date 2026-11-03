@@ -50,3 +50,4 @@ After this phase, scope is frozen so you can focus on building. Changes are stil
 |---|---|---|
 | 2026-10-23 | Added Email OTP verification (EP-14: POST /api/v1/auth/otp/send, EP-15: POST /api/v1/auth/otp/verify) | Enhanced candidate verification and passwordless flow with 6-digit Email OTP |
 | 2026-10-23 | Expanded JobListing schema with 7 recommended attributes (work_arrangement, salary_period, dedup_hash, etc.) | Enriched job discovery, deduplication, and candidate matching pipeline |
+| 2026-11-02 | Extended F-04 (Data Cleaning & Normalization) to include TypeSafe AI Jev-powered job classification: `job_category`, `job_subcategory`, `job_level` fields with hybrid Python fallback strategy. Added 4 new additive columns to `job_listings`. New service: `backend/app/services/job_classifier.py`. Does not modify recommendation engine. | Academic advisor recommendation to improve structured job classification for thesis defense |

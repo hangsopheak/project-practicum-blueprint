@@ -64,10 +64,32 @@ class ProfileSkill(Base):
     skill = relationship("Skill", back_populates="profile_skills")
 
 
+# -----------------------------------------------------------------------------
+# Master Sources Table (Data Aggregation Channels & Portals)
+# -----------------------------------------------------------------------------
+class Source(Base):
+    __tablename__ = "sources"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100), unique=True, nullable=False, index=True)
+    code = Column(String(50), unique=True, nullable=False, index=True)
+    platform_type = Column(String(50), nullable=False)  # telegram | web_portal | api
+    url = Column(Text, nullable=False)
+    logo_url = Column(Text, nullable=True)
+    is_active = Column(Boolean, default=True, nullable=False)
+    scrape_interval_minutes = Column(Integer, default=60, nullable=False)
+    last_scraped_at = Column(DateTime(timezone=True), nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
+
+    jobs = relationship("JobListing", back_populates="job_source")
+
+
 class JobListing(Base):
     __tablename__ = "job_listings"
 
     id = Column(Integer, primary_key=True, index=True)
+    source_id = Column(Integer, ForeignKey("sources.id", ondelete="SET NULL"), nullable=True, index=True)
     title = Column(String(200), nullable=False, index=True)
     company = Column(String(255), nullable=False, index=True)
     location = Column(String(255), default="Phnom Penh", nullable=False)
@@ -90,6 +112,11 @@ class JobListing(Base):
     posted_at = Column(Date, nullable=True)
     deadline = Column(Date, nullable=True)
     work_arrangement = Column(String(50), nullable=True)            # on-site | hybrid | remote
+    job_category = Column(String(100), default="Unknown", nullable=False, index=True)
+    job_subcategory = Column(String(100), default="Unknown", nullable=False)
+    job_level = Column(String(50), default="Unknown", nullable=False, index=True)
+    classification_confidence = Column(Float, nullable=True)
+    classification_source = Column(String(20), default="rule", nullable=False)     # jev | rule
     scraped_at = Column(DateTime(timezone=True), nullable=True)     # when the scraper last collected this
     last_seen_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
     status = Column(String(20), default="active", nullable=False)   # active | expired | closed
@@ -105,6 +132,7 @@ class JobListing(Base):
 
     skills = relationship("JobSkill", back_populates="job", cascade="all, delete-orphan")
     saved_by = relationship("SavedJob", back_populates="job", cascade="all, delete-orphan")
+    job_source = relationship("Source", back_populates="jobs")
 
     __table_args__ = (
         UniqueConstraint("source", "source_post_id", name="uq_job_listings_source_post_id"),

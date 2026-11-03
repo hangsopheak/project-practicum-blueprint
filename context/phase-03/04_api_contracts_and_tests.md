@@ -46,6 +46,8 @@
 | EP-13 | POST | /api/v1/admin/scrape | Trigger background ingestion of target sources | Yes (Admin) | F-03, F-04 |
 | EP-14 | POST | /api/v1/auth/otp/send | Generate and send 6-digit OTP code to email | No | F-01 |
 | EP-15 | POST | /api/v1/auth/otp/verify | Verify 6-digit OTP code and issue JWT session | No | F-01 |
+| EP-16 | GET | /api/v1/sources | List all supported Cambodian recruitment job sources | No | F-03, F-04 |
+| EP-17 | GET | /api/v1/sources/{id} | Get detail of a specific recruitment source | No | F-03, F-04 |
 
 ## 3. Endpoint Contract Cards
 
@@ -452,6 +454,59 @@ Success response, 200 OK:
 |---|---|
 | 400 BAD REQUEST | Incorrect, expired, or already-used OTP code |
 
+---
+
+### EP-16 — GET /api/v1/sources
+Lists all supported Cambodian recruitment job sources (Telegram channels and Web portals) with platform metadata.
+
+Query parameters:
+- `platform_type` (optional string): Filter by platform type (`telegram`, `web_portal`)
+- `is_active` (optional boolean): Filter active/inactive sources
+
+Response body (200 OK):
+```json
+[
+  {
+    "id": 1,
+    "name": "Internships Cambodia",
+    "code": "internships_cambodia",
+    "platform_type": "telegram",
+    "url": "https://t.me/internshipscambodia",
+    "logo_url": "assets/icons/telegram.png",
+    "is_active": true,
+    "scrape_interval_minutes": 60,
+    "last_scraped_at": null,
+    "created_at": "2026-11-02T04:05:03.028630Z",
+    "updated_at": "2026-11-02T04:05:03.028630Z"
+  }
+]
+```
+
+---
+
+### EP-17 — GET /api/v1/sources/{id}
+Retrieves details of a specific recruitment source by ID.
+
+Response body (200 OK):
+```json
+{
+  "id": 1,
+  "name": "Internships Cambodia",
+  "code": "internships_cambodia",
+  "platform_type": "telegram",
+  "url": "https://t.me/internshipscambodia",
+  "logo_url": "assets/icons/telegram.png",
+  "is_active": true,
+  "scrape_interval_minutes": 60,
+  "last_scraped_at": null,
+  "created_at": "2026-11-02T04:05:03.028630Z",
+  "updated_at": "2026-11-02T04:05:03.028630Z"
+}
+```
+
+| Error | When it happens |
+|---|---|
+| 404 NOT FOUND | No source exists with the given ID |
 
 ---
 
@@ -475,3 +530,7 @@ The API test collection is exported as a standard Postman/Bruno collection locat
 | EP-11 | EP-11 Bookmark Job | status 201; `status` equals `"success"` |
 | EP-12 | EP-12 Remove Bookmark | status 200; `status` equals `"success"` |
 | EP-13 | EP-13 Admin Trigger Scrape | status 200; `new_jobs_added` is number |
+| EP-14 | EP-14 Send Email OTP | status 200; `message` is string; `email` matches |
+| EP-15 | EP-15 Verify Email OTP | status 200; `access_token` is present; `token_type` is `"bearer"` |
+| EP-16 | EP-16 List Recruitment Sources | status 200; response is array; length >= 10 |
+| EP-17 | EP-17 Get Source Detail | status 200; `code` is string; `platform_type` is string |

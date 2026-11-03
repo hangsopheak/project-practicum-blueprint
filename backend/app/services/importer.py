@@ -27,6 +27,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from sqlalchemy.orm import Session
 from app.models.models import JobListing, Skill, JobSkill
+from app.services.job_classifier import classify_job
 
 logger = logging.getLogger(__name__)
 
@@ -359,6 +360,21 @@ def import_jobs_from_records(
                     stats["inserted"] += 1
                 continue
 
+            # Run structured classification (Jev with rule-based fallback)
+            classification = classify_job(
+                title=clean_title,
+                description=full_description,
+                company=company,
+                existing_work_arrangement=work_arrangement
+            )
+            job_category_val = classification.get("job_category", "Unknown")
+            job_subcategory_val = classification.get("job_subcategory", "Unknown")
+            job_level_val = classification.get("job_level", "Unknown")
+            class_conf_val = classification.get("classification_confidence")
+            class_source_val = classification.get("classification_source", "rule")
+            if not work_arrangement and classification.get("work_arrangement") != "Unknown":
+                work_arrangement = classification.get("work_arrangement")
+
             if existing:
                 # Update existing record
                 existing.title = clean_title
@@ -367,6 +383,11 @@ def import_jobs_from_records(
                 existing.description = full_description
                 existing.job_type = job_type
                 existing.experience_level = experience_level
+                existing.job_category = job_category_val
+                existing.job_subcategory = job_subcategory_val
+                existing.job_level = job_level_val
+                existing.classification_confidence = class_conf_val
+                existing.classification_source = class_source_val
                 if salary_min is not None:
                     existing.salary_min = salary_min
                 if salary_max is not None:
@@ -410,6 +431,11 @@ def import_jobs_from_records(
                     normalized_location=normalized_location,
                     experience_level=experience_level,
                     job_type=job_type,
+                    job_category=job_category_val,
+                    job_subcategory=job_subcategory_val,
+                    job_level=job_level_val,
+                    classification_confidence=class_conf_val,
+                    classification_source=class_source_val,
                     openings=openings_val,
                     salary_min=salary_min,
                     salary_max=salary_max,
