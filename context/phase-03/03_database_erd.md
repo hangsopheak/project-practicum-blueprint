@@ -235,6 +235,29 @@ Master taxonomy table grouping technical and professional competencies into stru
 | **UI/UX & Design** | `design` | `palette` | User interface design, wireframing, prototyping, user experience | UI/UX, Figma, Adobe XD, Wireframing |
 | **Data & AI** | `data` | `insights` | Data extraction, machine learning, data processing, statistics | Data Scraping, BeautifulSoup, Pandas, Scikit-learn, SQL |
 
+#### Concrete Seed Data Example (`skill_categories` Table):
+Demonstrates how the `code` column functions as a unique machine-readable slug and programmatic key for API parameters and Flutter client logic:
+
+| `id` (PK) | `name` (UK) | `code` (UK) | `icon` | `description` | `display_order` | Example Skills Contained (`skills`) |
+|:---:|---|---|---|---|:---:|---|
+| **1** | **Mobile Development** | `mobile` | `phone_android` | Mobile smartphone application engineering (iOS & Android) | 1 | Flutter, Dart, React Native, Swift, Kotlin |
+| **2** | **Backend Development** | `backend` | `dns` | Server-side architectures, REST APIs, business logic | 2 | Python, FastAPI, Node.js, Java, Go |
+| **3** | **Frontend Development** | `frontend` | `web` | Client-side web application user interfaces | 3 | JavaScript, TypeScript, React, HTML/CSS |
+| **4** | **Database & Storage** | `database` | `storage` | Relational, document, and in-memory databases | 4 | PostgreSQL, MySQL, MongoDB, Redis |
+| **5** | **DevOps & Cloud** | `devops` | `cloud` | Infrastructure, containerization, CI/CD pipelines | 5 | Docker, Git, Kubernetes, AWS, Linux |
+| **6** | **UI/UX & Design** | `design` | `palette` | User interface design, wireframing, prototyping | 6 | UI/UX, Figma, Adobe XD, Wireframing |
+| **7** | **Data & AI** | `data` | `insights` | Data extraction, machine learning, analytics | 7 | Web Scraping, Pandas, Scikit-learn, SQL |
+
+#### Relational Mapping Example (`skills` foreign key to `skill_categories`):
+| `skills.id` | `skills.name` | `skills.category_id` (FK) | Resolves to `code` | Resolves to `name` |
+|:---:|---|:---:|:---:|---|
+| **101** | Flutter | **1** | `mobile` | Mobile Development |
+| **102** | FastAPI | **2** | `backend` | Backend Development |
+| **103** | PostgreSQL | **4** | `database` | Database & Storage |
+| **104** | Docker | **5** | `devops` | DevOps & Cloud |
+| **105** | Figma | **6** | `design` | UI/UX & Design |
+| **106** | Pandas | **7** | `data` | Data & AI |
+
 ---
 
 ### Table: `skills`
